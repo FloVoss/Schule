@@ -12,5 +12,4 @@ public class App {
         Abteilung abt = new Abteilung("IT", new Manager(5011, "Tim", 4000.00, 2.00)); 
         System.out.println(abt.gehaltsliste());
     }
-    
 }
