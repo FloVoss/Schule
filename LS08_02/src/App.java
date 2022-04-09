@@ -1,11 +1,6 @@
-package LS08_01;
-
-public class UnternehmenTest {
-
-	public static void main(String[] args) {
-		
-		//Manager erstellen
-		Manager ruediger = new Manager(5000, "Rüdiger", 3000., 10.0);
+public class App {
+    public static void main(String[] args) throws Exception {
+        Manager ruediger = new Manager(5000, "Rï¿½diger", 3000., 10.0);
 		Manager barbara = new Manager(5001, "Barbara", 3500., 8.0);
 		
 		//Abteilungen erstellen
@@ -20,6 +15,5 @@ public class UnternehmenTest {
 		hartAmArbeiten.add(arbeiter2);
 		System.out.println(hartAmArbeiten.gehaltsliste());
 		System.out.println(nurChillenUndSo.gehaltsliste());
-	}
-
+    }
 }
