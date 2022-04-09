@@ -5,11 +5,8 @@ public abstract class Mitarbeiter {
     private String name;
 
     protected void setId(int id) {
-        if(id >= 3000 && id <= 5999) {
+        if(id >= 3000 && id <= 5999)
             this.id = id;
-        } else{
-            throw new IllegalArgumentException("Ungültige ID !!!");
-        }
     }
 
     private void setName(String name) {

@@ -10,9 +10,11 @@ public abstract class Kfz {
 
     private void setTankGroesse(double tankGroesse) {
         if (tankGroesse < 45) {
-            throw new IllegalArgumentException("Das ist zu wenig für ein KFZ !!!");
+            System.out.println("Das ist zu wenig für ein KFZ !!!");
+            this.tankGroesse = 45;
         } else if (tankGroesse > 65) {
-            throw new IllegalArgumentException("Das ist zu viel für ein KFZ !!!");
+            System.out.println("Das ist zu viel für ein KFZ !!!");
+            this.tankGroesse = 65;
         } else {
             this.tankGroesse = tankGroesse;
         }
@@ -22,16 +24,13 @@ public abstract class Kfz {
         if (tankInhalt <= this.tankGroesse) {
             this.tankInhalt = tankInhalt;
         } else {
-            throw new IllegalArgumentException("Beachten Sie, dass die maximale Tankgroesse ist " + this.tankGroesse + "!!!");
+            System.out.println("Beachten Sie, dass die maximale Tankgroesse ist " + this.tankGroesse + "!!!");
         }
     }
 
     private void setGeschwindigkeit(int geschwindigkeit) {
-        if (geschwindigkeit > 0) {
+        if (geschwindigkeit > 0)
             this.geschwindigkeit = geschwindigkeit;
-        } else {
-            throw new IllegalArgumentException("Die Geschwindigkeit ist ungültig !!!");
-        }
     }
 
     private void setFahrer(Fahrer fahrer) {
@@ -75,8 +74,6 @@ public abstract class Kfz {
         if (fahrer != null) {
             motorAn = true;
             aktuellePosition = ziel;
-        } else {
-            throw new NoDriverException("Es gibt keinen Fahrer !!!");
         }
     }
 
@@ -85,24 +82,21 @@ public abstract class Kfz {
             geschwindigkeit = 0;
             motorAn = false;
             fahrer = null;
-        } else {
-            throw new IllegalArgumentException("Motor ist aus !!!");
         }
+
     }
 
     public void tanken(double liter) {
         if (liter <= tankGroesse) {
             liter = tankGroesse;
-        } else {
-            throw new IllegalArgumentException("Das KFZ ist voll getankt!!!");
         }
     }
 
     public void einsteigenFahrer(Fahrer fahrer) {
-        if (this.fahrer == null) {
+        if (fahrer == null) {
             this.fahrer = fahrer;
         } else {
-            throw new IllegalArgumentException("Der Fahrer ist schon eingestiegen !!!");
+            System.out.println("Der Fahrer ist schon eingestiegen !!!");
         }
     }
 

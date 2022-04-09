@@ -33,7 +33,7 @@ public class Personentransportfahrzeug extends Kfz{
     }
 
     public void parken() {
-        passagiere = new List<Mitarbeiter>();
+        passagiere = null;
     }
 
     public Mitarbeiter aussteigen(int vonSitzplatz, Mitarbeiter person) {
