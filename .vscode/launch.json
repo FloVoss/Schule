@@ -1,0 +1,112 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Launch TestRandom",
+            "request": "launch",
+            "mainClass": "TestRandom.TestRandom",
+            "projectName": "JavaLearning_4ad0197c"
+        },
+        {
+            "type": "java",
+            "name": "Launch App",
+            "request": "launch",
+            "mainClass": "Mitarbeiter.src.App",
+            "projectName": "JavaLearning_4ad0197c"
+        },
+        {
+            "type": "java",
+            "name": "Launch App",
+            "request": "launch",
+            "mainClass": "fuhrpark.src.App",
+            "projectName": "JavaLearning_4ad0197c"
+        },
+        {
+            "type": "java",
+            "name": "Launch TestRandom",
+            "request": "launch",
+            "mainClass": "TestRandom.TestRandom",
+            "projectName": "JavaLearning_494ec21a"
+        },
+        {
+            "type": "java",
+            "name": "Launch Zufallzahlen",
+            "request": "launch",
+            "mainClass": "J06_Zufallszahlen.Zufallzahlen",
+            "projectName": "JavaLearning_494ec21a"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - MainKfzstest",
+            "request": "launch",
+            "mainClass": "kfz.MainKfzstest",
+            "projectName": "JavaLearning_4ad0197c"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - MainHundetest",
+            "request": "launch",
+            "mainClass": "hund.MainHundetest",
+            "projectName": "JavaLearning_4ad0197c"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Quadrat",
+            "request": "launch",
+            "mainClass": "Quadrat",
+            "projectName": "JavaLearning_4ad0197c"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Teiler",
+            "request": "launch",
+            "mainClass": "Teiler",
+            "projectName": "JavaLearning_4ad0197c"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch) - Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-Bustarif<JavaLearning_4ad0197c>",
+            "request": "launch",
+            "mainClass": "Bustarif",
+            "projectName": "JavaLearning_4ad0197c"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-Konto<JavaLearning_4ad0197c>",
+            "request": "launch",
+            "mainClass": "Konto",
+            "projectName": "JavaLearning_4ad0197c"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-Quersumme<JavaLearning_4ad0197c>",
+            "request": "launch",
+            "mainClass": "Quersumme",
+            "projectName": "JavaLearning_4ad0197c"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-RateZahl<JavaLearning_4ad0197c>",
+            "request": "launch",
+            "mainClass": "RateZahl",
+            "projectName": "JavaLearning_4ad0197c"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-Taschenrechner<JavaLearning_4ad0197c>",
+            "request": "launch",
+            "mainClass": "Taschenrechner",
+            "projectName": "JavaLearning_4ad0197c"
+        }
+    ]
+}
