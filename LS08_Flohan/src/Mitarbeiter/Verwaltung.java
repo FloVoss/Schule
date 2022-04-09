@@ -1,8 +1,8 @@
-package src.Mitarbeiter;
+package LS08_Flohan.src.Mitarbeiter;
 
 import java.util.List;
 
-import src.Fuhrpark.Kfz;
+import LS08_Flohan.src.Fuhrpark.Kfz;
 
 
 

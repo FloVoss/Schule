@@ -1,9 +1,9 @@
-package src.Fuhrpark;
+package LS08_Flohan.src.Fuhrpark;
 
 import java.util.List;
 
-import src.Mitarbeiter.Fahrer;
-import src.Mitarbeiter.Mitarbeiter;
+import LS08_Flohan.src.Mitarbeiter.Fahrer;
+import LS08_Flohan.src.Mitarbeiter.Mitarbeiter;
 
 public class Personentransportfahrzeug extends Kfz{
     private List<Mitarbeiter> passagiere;

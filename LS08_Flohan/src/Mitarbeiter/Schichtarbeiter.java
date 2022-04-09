@@ -1,4 +1,4 @@
-package src.Mitarbeiter;
+package LS08_Flohan.src.Mitarbeiter;
 
 public class Schichtarbeiter extends Mitarbeiter {
     private double stundenSatz;

@@ -1,6 +1,6 @@
-package src.Fuhrpark;
+package LS08_Flohan.src.Fuhrpark;
 
-import src.Mitarbeiter.Fahrer;
+import LS08_Flohan.src.Mitarbeiter.Fahrer;
 
 public class Lkw extends Kfz{
     private double ladeFlaeche;

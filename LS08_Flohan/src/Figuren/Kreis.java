@@ -1,4 +1,4 @@
-package src.Figuren;
+package LS08_Flohan.src.Figuren;
 
 public class Kreis {
 

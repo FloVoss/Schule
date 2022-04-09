@@ -1,6 +1,6 @@
-package src.Fuhrpark;
+package LS08_Flohan.src.Fuhrpark;
 
-import src.Mitarbeiter.Fahrer;
+import LS08_Flohan.src.Mitarbeiter.Fahrer;
 
 public class Bus extends Personentransportfahrzeug {
     public Bus(double tankGroesse, Gps aktuellePosition, int sitze) {
