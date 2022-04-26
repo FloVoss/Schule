@@ -4,7 +4,7 @@ import LS08_Flohan.src.Fuhrpark.Gps;
 import LS08_Flohan.src.Fuhrpark.Kfz;
 
 public class Fahrer extends Schichtarbeiter {
-    private String fuehrerscheinKlasse;
+    public String fuehrerscheinKlasse;
 
     private void setFuehrerscheinKlasse(String fuehrerscheinKlasse) {
         this.fuehrerscheinKlasse = fuehrerscheinKlasse;

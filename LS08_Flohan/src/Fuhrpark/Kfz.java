@@ -43,6 +43,10 @@ public abstract class Kfz {
         aktuellePosition = position;
     }
 
+    private void motorEinUndAusschalten(Boolean state) {
+        this.motorAn = state;
+    }
+
     private boolean isMotorAn() {
         return motorAn;
     }
@@ -73,8 +77,9 @@ public abstract class Kfz {
     }
 
     public void fahrenZu(Gps ziel) {
-        if (fahrer != null) {
-            motorAn = true;
+        if(!motorAn) motorEinUndAusschalten(true);
+        if (fahrer != null && motorAn) {
+            setGeschwindigkeit(120);
             aktuellePosition = ziel;
         }
     }
@@ -85,7 +90,6 @@ public abstract class Kfz {
             motorAn = false;
             fahrer = null;
         }
-
     }
 
     public void tanken(double liter) {
@@ -95,10 +99,10 @@ public abstract class Kfz {
     }
 
     public void einsteigenFahrer(Fahrer fahrer) {
-        if (fahrer == null) {
+        if (this.fahrer == null && fahrer.fuehrerscheinKlasse != null) {
             this.fahrer = fahrer;
         } else {
-            System.out.println("Der Fahrer ist schon eingestiegen !!!");
+            System.out.println("Es sitzt schon ein Fahrer in dem Auto drin!");
         }
     }
 
