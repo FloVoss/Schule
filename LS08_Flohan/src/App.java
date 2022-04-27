@@ -3,6 +3,7 @@ package LS08_Flohan.src;
 import java.util.Arrays;
 import java.util.List;
 
+import LS08_Flohan.src.Figuren.Dreieck;
 import LS08_Flohan.src.Fuhrpark.Gps;
 import LS08_Flohan.src.Fuhrpark.Kfz;
 import LS08_Flohan.src.Fuhrpark.Lkw;
@@ -26,5 +27,15 @@ public class App {
             kfz2.fahrenZu(new Gps(90, 90));
             kfz2.parken();
         }
+        
+        Dreieck dreieck = new Dreieck(4,6,8);
+        System.out.println(dreieck.flaeche());
+        System.out.println(dreieck.umfang());
+
+        dreieck.setA(2);
+        dreieck.setB(3);
+        dreieck.setC(6);
+
+        System.out.println(dreieck.getA()+ "\n" + dreieck.getB()+ "\n" + dreieck.getC());
     }
 }

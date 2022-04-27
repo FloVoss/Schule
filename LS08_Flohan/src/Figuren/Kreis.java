@@ -1,30 +1,27 @@
 package LS08_Flohan.src.Figuren;
 
-public class Kreis {
+public class Kreis extends Figur2D{
+    private double radius;
 
-    private double radius = 0.0;
-
-    public Kreis(double radius) {
+    private void setRadius(double radius) {
         this.radius = radius;
     }
 
-    public double getRadius() {
-        return this.radius;
+    public Kreis(double radius) {
+        setRadius(radius);
     }
 
-    private void setRadius(double radius) {
-        if (radius > 0) {
-            this.radius = radius;
-        } else {
-            System.out.println("Falsche Eingabe,Geben Sie einen richtigen Wert ein !!!");
-        }
-    }
-
-    public double umfang() {
-        return 2 * Math.PI * radius;
-    }
-
+    @Override
     public double flaeche() {
-        return Math.PI * Math.pow(radius, 2);
+        return Math.PI * radius;
+    }
+
+    @Override
+    public double umfang() {
+        return 2 * radius * Math.PI;
+    }
+
+    public double getRadius() {
+        return radius;
     }
 }
