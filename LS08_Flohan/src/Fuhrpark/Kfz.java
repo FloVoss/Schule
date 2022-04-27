@@ -86,7 +86,7 @@ public abstract class Kfz {
 
     public void parken() {
         if (motorAn) {
-            geschwindigkeit = 0;
+            geschwindigkeit= 0;
             motorAn = false;
             fahrer = null;
         }
@@ -94,7 +94,7 @@ public abstract class Kfz {
 
     public void tanken(double liter) {
         if (liter <= tankGroesse) {
-            liter = tankGroesse;
+            tankInhalt = liter;
         }
     }
 
