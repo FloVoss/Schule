@@ -26,15 +26,34 @@ public class N_Eck extends Figur2D {
     }
 
     @Override
-    public double umfang() {
-        return seitenLaenge * anzahlSeiten;
+    public double flaeche() {
+        double temp = aussenKreisRadius();
+        try {
+            return new Dreieck(temp, temp, seitenLaenge).flaeche() * eckenAnzahl;
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+            return 0.0;
+        }
+
     }
 
     @Override
-    public double flaeche() {
-        double umkreisRadius = seitenLaenge/(2 * Math.sin(Math.PI/anzahlSeiten));
-        double s = (seitenLaenge + (umkreisRadius * 2)) / 2;
-        return Math.sqrt(s * (s-seitenLaenge) * (s-umkreisRadius) * (s-umkreisRadius)) * anzahlSeiten;
+    public double umfang() {
+        double temp = aussenKreisRadius();
+        try {
+            return new Dreieck(temp, temp, seitenLaenge).flaeche() * eckenAnzahl;
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+            return 0.0;
+        }
+    }
+
+    public double innenKreisRadius() {
+        return seitenLaenge / (2 * Math.tan(Math.PI / anzahlSeiten));
+    }
+
+    public double aussenKreisRadius() {
+        return seitenLaenge / (2 * Math.sin(Math.PI / anzahlSeiten));
     }
 
 }
