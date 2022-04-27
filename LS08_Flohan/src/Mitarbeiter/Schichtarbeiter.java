@@ -18,4 +18,16 @@ public class Schichtarbeiter extends Mitarbeiter {
     public double einkommen() {
        return stundenSatz * anzahlStunden;
     }
+    public double getStundenSatz() {
+        return stundenSatz;
+    }
+    public void setStundenSatz(double stundenSatz) {
+        this.stundenSatz = stundenSatz;
+    }
+    public int getAnzahlStunden() {
+        return anzahlStunden;
+    }
+    public void setAnzahlStunden(int anzahlStunden) {
+        this.anzahlStunden = anzahlStunden;
+    }
 }
