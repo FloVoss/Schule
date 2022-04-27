@@ -55,6 +55,9 @@ public class Dreieck extends Figur2D {
     }
 
     public static boolean isKonstruierbar(double a, double b, double c) {
+        if(a <= 0 || b <= 0 || c <= 0) {
+            throw new IllegalArgumentException("Geben Sie bitte gültige Werte zur Überprüfung ein !!!");
+        }
         return a + b > c && b + c > a && a + c > b;
     }
 }
