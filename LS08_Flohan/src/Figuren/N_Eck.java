@@ -29,7 +29,7 @@ public class N_Eck extends Figur2D {
     public double flaeche() {
         double temp = aussenKreisRadius();
         try {
-            return new Dreieck(temp, temp, seitenLaenge).flaeche() * eckenAnzahl;
+            return new Dreieck(temp, temp, seitenLaenge).flaeche() * anzahlSeiten;
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
             return 0.0;
@@ -41,7 +41,7 @@ public class N_Eck extends Figur2D {
     public double umfang() {
         double temp = aussenKreisRadius();
         try {
-            return new Dreieck(temp, temp, seitenLaenge).flaeche() * eckenAnzahl;
+            return new Dreieck(temp, temp, seitenLaenge).flaeche() * anzahlSeiten;
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
             return 0.0;
