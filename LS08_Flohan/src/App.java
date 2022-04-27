@@ -17,10 +17,10 @@ import LS08_Flohan.src.Mitarbeiter.Manager;
 public class App {
 
     public static void main(String[] args) {
-        Abteilung abt = new Abteilung("IT", new Manager(5011, "Tim", 4000.00, 2.00)); 
+        Abteilung abt = new Abteilung("IT", new Manager(5011, "Tim", 4000.00, 2.00));
         System.out.println(abt.gehaltsliste());
         Kfz kfz = new Lkw(50, new Gps(0.0, 0.0), 0);
-        kfz.einsteigenFahrer(new Fahrer(0, "name", "B"));
+        kfz.einsteigenFahrer(new Fahrer(0, "name", "C"));
         List<Kfz> kfzs = Arrays.asList(kfz, new Personentransportfahrzeug(55, new Gps(0, 0), 6));
         for (Kfz kfz2 : kfzs) {
             kfz2.fahrenZu(new Gps(90, 90));
