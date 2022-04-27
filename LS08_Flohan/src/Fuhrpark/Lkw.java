@@ -2,9 +2,9 @@ package LS08_Flohan.src.Fuhrpark;
 
 import LS08_Flohan.src.Mitarbeiter.Fahrer;
 
-public class Lkw extends Kfz{
+public class Lkw extends Kfz {
     private double ladeFlaeche;
-    private double ladung; 
+    private double ladung;
 
     private void setLadeFlaeche(double ladeFlaeche) {
         this.ladeFlaeche = ladeFlaeche;
@@ -20,17 +20,21 @@ public class Lkw extends Kfz{
     }
 
     public void beladen(double menge) {
-        if(ladung <= ladeFlaeche)
+        if (ladung <= ladeFlaeche)
             ladung += menge;
     }
-    
+
     public void entladen(double menge) {
         ladung -= menge;
     }
 
     @Override
     public void einsteigenFahrer(Fahrer fahrer) {
-        super.einsteigenFahrer(fahrer);
+        if (fahrer.fuehrerscheinKlasse.toUpperCase().startsWith("C")) {
+            super.einsteigenFahrer(fahrer);
+        } else {
+            System.out.println("Sie haben keinen gültigen Führerschein um Personen zu befördern");
+        }
     }
 
     @Override

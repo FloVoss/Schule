@@ -6,17 +6,16 @@ import java.util.List;
 import LS08_Flohan.src.Mitarbeiter.Fahrer;
 import LS08_Flohan.src.Mitarbeiter.Mitarbeiter;
 
-public class Personentransportfahrzeug extends Kfz{
+public class Personentransportfahrzeug extends Kfz {
     private List<Mitarbeiter> passagiere;
     private int sitze;
-    
-    public List<Mitarbeiter> getPassagiere()
-    {
+
+    public List<Mitarbeiter> getPassagiere() {
         return passagiere;
     }
 
     private void setSitze(int sitze) {
-        this.sitze = sitze; 
+        this.sitze = sitze;
     }
 
     public int getSitze() {
@@ -39,22 +38,19 @@ public class Personentransportfahrzeug extends Kfz{
 
     @Override
     public void einsteigenFahrer(Fahrer fahrer) {
-        if(fahrer.fuehrerscheinKlasse.startsWith("B"))
-        { 
+        if (fahrer.fuehrerscheinKlasse.startsWith("B")) {
             super.einsteigenFahrer(fahrer);
-        }else
-        {
+        } else {
             System.out.println("Sie haben keinen gültigen Führerschein um Personen zu befördern");
         }
     }
+
     @Override
     public void parken() {
         int index = 0;
         super.parken();
-        if(passagiere.size() > 0)
-        {
-            for(Mitarbeiter passagier : passagiere)
-            {
+        if (passagiere.size() > 0) {
+            for (Mitarbeiter passagier : passagiere) {
                 aussteigen(index++);
             }
         }
@@ -62,8 +58,8 @@ public class Personentransportfahrzeug extends Kfz{
 
     public Mitarbeiter aussteigen(int vonSitzplatz) {
         if (vonSitzplatz > 0 && vonSitzplatz <= passagiere.size()) {
-            Mitarbeiter aussteiger = passagiere.get(vonSitzplatz-1);
-            passagiere.remove(vonSitzplatz-1);
+            Mitarbeiter aussteiger = passagiere.get(vonSitzplatz - 1);
+            passagiere.remove(vonSitzplatz - 1);
             return aussteiger;
         }
         System.out.println("dieser sitz ist entweder nicht belegt oder existiert nicht in dem Auto");
@@ -71,6 +67,6 @@ public class Personentransportfahrzeug extends Kfz{
     }
 
     public double auslastung() {
-        return passagiere.size() / sitze;   
+        return passagiere.size() / sitze;
     }
 }
