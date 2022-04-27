@@ -25,7 +25,10 @@ public class Lkw extends Kfz{
     }
     
     public void entladen(double menge) {
-        ladung -= menge;
+        if(menge <= ladung && menge > 0)
+        {
+            ladung -= menge;
+        }
     }
 
     @Override
