@@ -8,7 +8,10 @@ public class Bus extends Personentransportfahrzeug {
     }
     @Override
     public void einsteigenFahrer(Fahrer fahrer) {
-        if(fahrer.fuehrerscheinKlasse.startsWith("D"));
-        super.einsteigenFahrer(fahrer);
+        if(fahrer.fuehrerscheinKlasse.startsWith("D")) {
+            super.einsteigenFahrer(fahrer);
+        } else {
+            throw new IllegalArgumentException("Nur ein Fahrer mit der entsprechnden Führerscheinklasse fahren darf !");
+        }
     }
 }

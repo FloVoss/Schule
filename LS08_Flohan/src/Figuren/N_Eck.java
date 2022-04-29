@@ -5,11 +5,15 @@ public class N_Eck extends Figur2D {
     private int anzahlSeiten;
 
     private void setSeitenLaenge(double seitenLaenge) {
-        this.seitenLaenge = seitenLaenge;
+        if(seitenLaenge > 0) {
+            this.seitenLaenge = seitenLaenge;
+        }
     }
 
     private void setAnzahlSeiten(int anzahlSeiten) {
-        this.anzahlSeiten = anzahlSeiten;
+        if(anzahlSeiten > 1) {
+            this.anzahlSeiten = anzahlSeiten;
+        }
     }
     
     public double getSeitenLaenge() {

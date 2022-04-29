@@ -5,8 +5,11 @@ public class Gps {
     private double breitenGrad;
 
     private void setLaengenGrad(double laengenGrad) {
-        if (laengenGrad >= 0 && laengenGrad <= 360)
+        if (laengenGrad >= 0 && laengenGrad <= 360) {
             this.laengenGrad = laengenGrad;
+        } else {
+            throw new IllegalArgumentException("Geben sie bitte eine gültige Längengrad 0 bis 360 !");
+        }
     }
 
     private void setBreitenGrad(double breitenGrad) {

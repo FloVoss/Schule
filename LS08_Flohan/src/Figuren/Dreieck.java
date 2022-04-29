@@ -1,5 +1,7 @@
 package LS08_Flohan.src.Figuren;
 
+import java.io.FileNotFoundException;
+
 public class Dreieck extends Figur2D {
     private double a;
     private double b;
@@ -51,13 +53,14 @@ public class Dreieck extends Figur2D {
 
     @Override
     public double umfang() {
+
         return a + b + c;
     }
 
     public static boolean isKonstruierbar(double a, double b, double c) {
-        if(a <= 0 || b <= 0 || c <= 0) {
-            throw new IllegalArgumentException("Geben Sie bitte gültige Werte zur Überprüfung ein !!!");
+        if(!( a > 0 && b > 0 && c > 0)) {
+            throw new IllegalArgumentException("Stellen Sie sicher, dass immer 2 Seitenlänge zusammen größer als die Dritte !");
         }
-        return a + b > c && b + c > a && a + c > b;
+        return a < (b + c) || b < (a + c) || c < (a + b);
     }
 }
