@@ -2,6 +2,7 @@ package LS08_Flohan.src;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Scanner;
 
 import LS08_Flohan.src.Figuren.Dreieck;
 import LS08_Flohan.src.Fuhrpark.Gps;
@@ -28,14 +29,26 @@ public class App {
             kfz2.parken();
         }
         
-        Dreieck dreieck = new Dreieck(4,6,8);
+        Dreieck dreieck = null;
+        
+        Scanner sc = new Scanner(System.in);
+        boolean validDreieck = false;
+        while (!validDreieck) {
+            try {
+                System.out.println("Bitte geben Sie Werte ein!");
+                dreieck = new Dreieck(sc.nextInt(), sc.nextInt(), sc.nextInt());
+                validDreieck = true;
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+            }
+        }
+        
         System.out.println(dreieck.flaeche());
         System.out.println(dreieck.umfang());
 
-        dreieck.setA(2);
-        dreieck.setB(3);
-        dreieck.setC(6);
 
         System.out.println(dreieck.getA()+ "\n" + dreieck.getB()+ "\n" + dreieck.getC());
+
+        System.out.println("Diese Zeile wird geschrieben werden weil unser programm nicht abstürtzt");
     }
 }
