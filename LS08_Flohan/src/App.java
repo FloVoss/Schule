@@ -42,7 +42,7 @@ public class App {
                 System.out.println(e.getMessage());
             }
         }
-        
+        sc.close();
         System.out.println(dreieck.flaeche());
         System.out.println(dreieck.umfang());
 
