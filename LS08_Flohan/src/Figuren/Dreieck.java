@@ -1,6 +1,7 @@
 package LS08_Flohan.src.Figuren;
 
 import java.io.FileNotFoundException;
+import java.io.InvalidObjectException;
 
 public class Dreieck extends Figur2D {
     private double a;
@@ -37,11 +38,14 @@ public class Dreieck extends Figur2D {
         return c;
     }
     
-    public Dreieck(double a, double b, double c) {
+    public Dreieck(double a, double b, double c) throws InvalidObjectException{
         if (isKonstruierbar(a, b, c)) {
             this.a = a;
             this.b = b;
             this.c = c;
+        }else
+        {
+            throw new InvalidObjectException("falsche argumente");
         }
     }
 
@@ -58,9 +62,10 @@ public class Dreieck extends Figur2D {
     }
 
     public static boolean isKonstruierbar(double a, double b, double c) {
-        if(!( a > 0 && b > 0 && c > 0)) {
+        if(!( a > 0 || b > 0 || c > 0)) {
             throw new IllegalArgumentException("Stellen Sie sicher, dass immer 2 Seitenlänge zusammen größer als die Dritte !");
         }
-        return a < (b + c) || b < (a + c) || c < (a + b);
+        boolean x = a < (b + c) && b < (a + c) && c < (a + b);
+        return x;
     }
 }
