@@ -13,7 +13,7 @@ public class Kreis extends Figur2D{
 
     @Override
     public double flaeche() {
-        return Math.PI * radius;
+        return Math.PI * Math.pow(radius, 2);
     }
 
     @Override
