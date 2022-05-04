@@ -1,10 +1,19 @@
 package LS08_Flohan.src;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
 import LS08_Flohan.src.Figuren.Dreieck;
+import LS08_Flohan.src.Figuren.Dreiecksprisma;
+import LS08_Flohan.src.Figuren.Figur3D;
+import LS08_Flohan.src.Figuren.GeraderPrisma;
+import LS08_Flohan.src.Figuren.Kreis;
+import LS08_Flohan.src.Figuren.Kugel;
+import LS08_Flohan.src.Figuren.Quader;
+import LS08_Flohan.src.Figuren.Rechteck;
+import LS08_Flohan.src.Figuren.Zylinder;
 import LS08_Flohan.src.Fuhrpark.Gps;
 import LS08_Flohan.src.Fuhrpark.Kfz;
 import LS08_Flohan.src.Fuhrpark.Lkw;
@@ -48,7 +57,15 @@ public class App {
 
 
         System.out.println(dreieck.getA()+ "\n" + dreieck.getB()+ "\n" + dreieck.getC());
-
-        System.out.println("Diese Zeile wird geschrieben werden weil unser programm nicht abstürtzt");
+        try {
+            System.out.println("Diese Zeile wird geschrieben werden weil unser programm nicht abstürtzt");
+        Figur3D[] figuren = new Figur3D[]{new Kugel(new Kreis(13), 13), new Zylinder(new Kreis(10), 10), new Quader(new Rechteck(10, 10), 10), new Dreiecksprisma(new Dreieck(3, 4, 5), 10)};
+        for(Figur3D figur : figuren)
+        {
+            System.out.println(figur.volumen() + "\r\n" + figur.oberflaeche() + "\r\n");
+        }    
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
     }
 }
