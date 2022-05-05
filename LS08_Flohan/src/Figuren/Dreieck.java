@@ -1,7 +1,7 @@
 package LS08_Flohan.src.Figuren;
 
 
-public class Dreieck extends Figur2D {
+public class Dreieck implements IFigur2D {
     private double a;
     private double b;
     private double c;

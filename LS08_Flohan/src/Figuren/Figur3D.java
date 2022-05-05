@@ -1,6 +1,6 @@
 package LS08_Flohan.src.Figuren;
 
-public abstract class Figur3D<T extends Figur2D>{
+public abstract class Figur3D<T extends IFigur2D>{
     protected T grundflaeche;
     protected double hoehe;
     public abstract double volumen();

@@ -1,6 +1,6 @@
 package LS08_Flohan.src.Figuren;
 
-public class Rechteck extends Figur2D {
+public class Rechteck implements IFigur2D {
     private double hoehe;
     private double breite;
 

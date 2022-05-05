@@ -1,6 +1,6 @@
 package LS08_Flohan.src.Figuren;
 
-public abstract class GeraderPrisma<T extends Figur2D> extends Figur3D<T>
+public abstract class GeraderPrisma<T extends IFigur2D> extends Figur3D<T>
 {
     @Override
     public double oberflaeche() {

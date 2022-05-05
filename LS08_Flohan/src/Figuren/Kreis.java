@@ -1,6 +1,6 @@
 package LS08_Flohan.src.Figuren;
 
-public class Kreis extends Figur2D{
+public class Kreis implements IFigur2D{
     private double radius;
 
     private void setRadius(double radius) {
