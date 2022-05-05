@@ -1,7 +1,5 @@
 package LS08_Flohan.src.Figuren;
 
-import java.io.FileNotFoundException;
-import java.io.InvalidObjectException;
 
 public class Dreieck extends Figur2D {
     private double a;

@@ -3,13 +3,13 @@ package LS08_Flohan.src;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Scanner;
+
 
 import LS08_Flohan.src.Figuren.Dreieck;
 import LS08_Flohan.src.Figuren.Dreiecksprisma;
 import LS08_Flohan.src.Figuren.DreiseitigePyramide;
 import LS08_Flohan.src.Figuren.Figur3D;
-import LS08_Flohan.src.Figuren.GeraderPrisma;
+
 import LS08_Flohan.src.Figuren.Kreis;
 import LS08_Flohan.src.Figuren.Kreiskegel;
 import LS08_Flohan.src.Figuren.Kugel;
