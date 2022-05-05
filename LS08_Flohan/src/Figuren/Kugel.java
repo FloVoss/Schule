@@ -1,8 +1,8 @@
 package LS08_Flohan.src.Figuren;
 
 public class Kugel extends Figur3D<Kreis>{
-    public Kugel(Kreis grundflaeche, double radius) {
-        super(grundflaeche, radius);
+    public Kugel(Kreis grundflaeche, double hoehe) {
+        super(grundflaeche, hoehe);
     }
     @Override
     public double volumen() {

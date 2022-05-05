@@ -38,20 +38,20 @@ public class Dreieck extends Figur2D {
         return c;
     }
     
-    public Dreieck(double a, double b, double c) throws InvalidObjectException{
+    public Dreieck(double a, double b, double c) {
         if (isKonstruierbar(a, b, c)) {
             this.a = a;
             this.b = b;
             this.c = c;
         }else
         {
-            throw new InvalidObjectException("falsche argumente");
+            throw new IllegalArgumentException("falsche argumente");
         }
     }
 
     @Override
     public double flaeche() {
-        int s = (int) umfang() /2;
+        double s = umfang() /2.00;
         return Math.sqrt(s * (s-a) * (s-b) * (s-c));
     }
 

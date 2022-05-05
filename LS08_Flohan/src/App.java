@@ -7,12 +7,15 @@ import java.util.Scanner;
 
 import LS08_Flohan.src.Figuren.Dreieck;
 import LS08_Flohan.src.Figuren.Dreiecksprisma;
+import LS08_Flohan.src.Figuren.DreiseitigePyramide;
 import LS08_Flohan.src.Figuren.Figur3D;
 import LS08_Flohan.src.Figuren.GeraderPrisma;
 import LS08_Flohan.src.Figuren.Kreis;
+import LS08_Flohan.src.Figuren.Kreiskegel;
 import LS08_Flohan.src.Figuren.Kugel;
 import LS08_Flohan.src.Figuren.Quader;
 import LS08_Flohan.src.Figuren.Rechteck;
+import LS08_Flohan.src.Figuren.VierseitigePyramide;
 import LS08_Flohan.src.Figuren.Zylinder;
 import LS08_Flohan.src.Fuhrpark.Gps;
 import LS08_Flohan.src.Fuhrpark.Kfz;
@@ -38,34 +41,31 @@ public class App {
             kfz2.parken();
         }
         
-        Dreieck dreieck = null;
         
-        Scanner sc = new Scanner(System.in);
-        boolean validDreieck = false;
-        while (!validDreieck) {
-            try {
-                System.out.println("Bitte geben Sie Werte ein!");
-                dreieck = new Dreieck(sc.nextInt(), sc.nextInt(), sc.nextInt());
-                validDreieck = true;
-            } catch (Exception e) {
-                System.out.println(e.getMessage());
-            }
-        }
-        sc.close();
-        System.out.println(dreieck.flaeche());
-        System.out.println(dreieck.umfang());
-
-
-        System.out.println(dreieck.getA()+ "\n" + dreieck.getB()+ "\n" + dreieck.getC());
-        try {
-            System.out.println("Diese Zeile wird geschrieben werden weil unser programm nicht abstürtzt");
-        Figur3D[] figuren = new Figur3D[]{new Kugel(new Kreis(13), 13), new Zylinder(new Kreis(10), 10), new Quader(new Rechteck(10, 10), 10), new Dreiecksprisma(new Dreieck(3, 4, 5), 10)};
-        for(Figur3D figur : figuren)
+        List<Figur3D<Kreis>> figuren = new ArrayList<Figur3D<Kreis>>();
+        figuren.add(new Kreiskegel(new Kreis(10), 10));
+        figuren.add(new Zylinder(new Kreis(10), 10));
+        figuren.add(new Kugel(new Kreis(10), 10));
+        List<Figur3D<Rechteck>> figuren2 = new ArrayList<Figur3D<Rechteck>>();
+        figuren2.add(new Quader(new Rechteck(10, 10), 10));
+        figuren2.add(new VierseitigePyramide(new Rechteck(10, 10), 10));
+        List<Figur3D<Dreieck>> figuren3 = new ArrayList<Figur3D<Dreieck>>();
+        figuren3.add(new Dreiecksprisma(new Dreieck(3, 4, 5), 10));
+        figuren3.add(new DreiseitigePyramide(new Dreieck(3, 4, 5), 10));
+        System.out.println("3D Kreisfiguren: \n");
+        for(var item : figuren)
         {
-            System.out.println(figur.volumen() + "\r\n" + figur.oberflaeche() + "\r\n");
-        }    
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
+            System.out.println(item.volumen() + "\n" + item.oberflaeche() + "\n");
+        }
+        System.out.println("3D Rechteckige Figuren: \n");
+        for(var item : figuren2)
+        {
+            System.out.println(item.volumen() + "\n" + item.oberflaeche() + "\n");
+        }
+        System.out.println("3D Dreieckige Figuren: \n");
+        for(var item : figuren3)
+        {
+            System.out.println(item.volumen() + "\n" + item.oberflaeche() + "\n");
         }
     }
 }
