@@ -3,10 +3,9 @@ package LS08_Flohan.src.Figuren;
 /**
  * DreiseitigePyramide
  */
-public class DreiseitigePyramide extends Pyramidenartig<Dreieck> implements Mantelflaeche{
+public class DreiseitigePyramide extends Pyramidenartig<Dreieck> {
     public DreiseitigePyramide(Dreieck grundflaeche, double hoehe) {
         super(grundflaeche, hoehe);
-        super.mantelflaeche = this;
     }
     @Override
     public double mantelFlaeche() {

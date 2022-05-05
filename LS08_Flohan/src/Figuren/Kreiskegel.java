@@ -3,10 +3,9 @@ package LS08_Flohan.src.Figuren;
 /**
  * Kreiskegel
  */
-public class Kreiskegel extends Pyramidenartig<Kreis> implements Mantelflaeche{
+public class Kreiskegel extends Pyramidenartig<Kreis> {
     public Kreiskegel(Kreis grundflaeche, double hoehe) {
         super(grundflaeche, hoehe);
-        super.mantelflaeche = this;
     }
 
     @Override

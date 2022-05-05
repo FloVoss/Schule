@@ -1,9 +1,8 @@
 package LS08_Flohan.src.Figuren;
 
-public class VierseitigePyramide extends Pyramidenartig<Rechteck> implements Mantelflaeche{
+public class VierseitigePyramide extends Pyramidenartig<Rechteck> {
     public VierseitigePyramide(Rechteck grundflaeche, double hoehe) {
         super(grundflaeche, hoehe);
-        super.mantelflaeche = this;
     }
     @Override
     public double mantelFlaeche() {

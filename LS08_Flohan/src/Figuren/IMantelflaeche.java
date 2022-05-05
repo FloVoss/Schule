@@ -1,5 +1,5 @@
 package LS08_Flohan.src.Figuren;
 
-public interface Mantelflaeche{
+public interface IMantelflaeche{
     public double mantelFlaeche();
 }
