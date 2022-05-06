@@ -1,15 +1,13 @@
 package LS08_Flohan.src.Figuren;
 
 public abstract class Pyramidenartig<T extends IFigur2D> extends Figur3D<T> implements IMantelflaeche{
-    IMantelflaeche mantelflaeche;
     public Pyramidenartig(T grundflaeche, double hoehe) {
         super(grundflaeche, hoehe);
-        mantelflaeche = this;
     }
     @Override
     public double oberflaeche() {
         double flaeche = grundflaeche.flaeche();
-        double mantel = mantelflaeche.mantelFlaeche();
+        double mantel = this.mantelFlaeche();
         double oberflaeche = flaeche + mantel;
         return oberflaeche;
     }
