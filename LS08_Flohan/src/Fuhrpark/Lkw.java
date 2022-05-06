@@ -2,7 +2,9 @@ package LS08_Flohan.src.Fuhrpark;
 
 import LS08_Flohan.src.Mitarbeiter.Fahrer;
 
-public class Lkw extends Kfz {
+import java.util.List;
+
+public class Lkw extends Kfz implements Comparable<Lkw> {
     private double ladeFlaeche;
     private double ladung;
 
@@ -43,5 +45,10 @@ public class Lkw extends Kfz {
     @Override
     public double auslastung() {
         return ladeFlaeche / 100;
+    }
+
+    @Override
+    public int compareTo(Lkw o) {
+        return 0;
     }
 }

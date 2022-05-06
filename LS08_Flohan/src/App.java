@@ -1,8 +1,6 @@
 package LS08_Flohan.src;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 
 import LS08_Flohan.src.Figuren.Dreieck;
@@ -24,6 +22,7 @@ import LS08_Flohan.src.Fuhrpark.Personentransportfahrzeug;
 import LS08_Flohan.src.Mitarbeiter.Abteilung;
 import LS08_Flohan.src.Mitarbeiter.Fahrer;
 import LS08_Flohan.src.Mitarbeiter.Manager;
+import LS08_Flohan.src.Mitarbeiter.Verwaltung;
 
 /**
  * App class zum testen
@@ -67,5 +66,22 @@ public class App {
         {
             System.out.println(item.volumen() + "\n" + item.oberflaeche() + "\n");
         }
+
+        Lkw lkw = new Lkw(50,new Gps(1.0, 2.0), 0);
+        lkw.beladen(35.4);
+        lkw.entladen(44.5);
+        lkw.beladen(54);
+        lkw.entladen(26);
+        lkw.beladen(48);
+        lkw.entladen(75);
+
+
+        for (int i = 1; i <= 10; i++) {
+            lkw.beladen(Math.random());
+            lkw.entladen(Math.random());
+        }
+
+        Verwaltung verwaltung = new Verwaltung();
+
     }
 }
