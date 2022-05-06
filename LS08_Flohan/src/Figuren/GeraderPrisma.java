@@ -10,12 +10,6 @@ public abstract class GeraderPrisma<T extends IFigur2D> extends Figur3D<T>
     public double volumen() {
         return grundflaeche.flaeche() * hoehe;
     }
-    protected void setGrundflaeche(T grundflaeche) {
-        this.grundflaeche = grundflaeche;
-    }
-    protected void setHoehe(double hoehe) {
-        this.hoehe = hoehe;
-    }    
     public GeraderPrisma(T grundflaeche, double hoehe) {
         super(grundflaeche, hoehe);
     }
