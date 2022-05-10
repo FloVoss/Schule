@@ -43,7 +43,7 @@ public class Dreieck implements IFigur2D {
             this.c = c;
         }else
         {
-            throw new IllegalArgumentException("falsche argumente");
+            throw new IllegalArgumentException("Dieses Dreieck ist nicht konstruierbar. Stellen Sie sicher, dass in jedem Fall 2 der 3 Seiten zusammen größer/länger sind als die dritte Seite");
         }
     }
 
@@ -61,7 +61,7 @@ public class Dreieck implements IFigur2D {
 
     public static boolean isKonstruierbar(double a, double b, double c) {
         if(a <= 0 || b <= 0 || c <= 0) {
-            throw new IllegalArgumentException("Stellen Sie sicher, dass immer 2 Seitenlänge zusammen größer als die Dritte !");
+            throw new IllegalArgumentException("Werte kleiner als oder gleich Null sind nicht erlaubt!");
         }
         boolean x = a < (b + c) && b < (a + c) && c < (a + b);
         return x;
