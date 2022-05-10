@@ -60,7 +60,7 @@ public class Dreieck implements IFigur2D {
     }
 
     public static boolean isKonstruierbar(double a, double b, double c) {
-        if(!( a > 0 || b > 0 || c > 0)) {
+        if(a <= 0 || b <= 0 || c <= 0) {
             throw new IllegalArgumentException("Stellen Sie sicher, dass immer 2 Seitenlänge zusammen größer als die Dritte !");
         }
         boolean x = a < (b + c) && b < (a + c) && c < (a + b);
