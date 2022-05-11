@@ -1,7 +1,9 @@
 package LS08_Flohan.src.Figuren;
 
-public abstract class GeraderPrisma<T extends IFigur2D> extends Figur3D<T>
+public abstract class GeraderPrisma<T extends IFigur2D> implements Figur3D
 {
+    double hoehe;
+    T grundflaeche;
     @Override
     public double oberflaeche() {
         return 2 * grundflaeche.flaeche() + grundflaeche.umfang() * hoehe;
@@ -11,6 +13,8 @@ public abstract class GeraderPrisma<T extends IFigur2D> extends Figur3D<T>
         return grundflaeche.flaeche() * hoehe;
     }
     public GeraderPrisma(T grundflaeche, double hoehe) {
-        super(grundflaeche, hoehe);
+        super();
+        this.grundflaeche = grundflaeche;
+        this.hoehe = hoehe;
     }
 }

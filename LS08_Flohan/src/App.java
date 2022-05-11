@@ -41,14 +41,14 @@ public class App {
         }
         
         
-        List<Figur3D<Kreis>> figuren = new ArrayList<Figur3D<Kreis>>();
+        List<Figur3D> figuren = new ArrayList<Figur3D>();
         figuren.add(new Kreiskegel(new Kreis(10), 10));
         figuren.add(new Zylinder(new Kreis(10), 10));
-        figuren.add(new Kugel(new Kreis(10), 10));
-        List<Figur3D<Rechteck>> figuren2 = new ArrayList<Figur3D<Rechteck>>();
+        figuren.add(new Kugel(10));
+        List<Figur3D> figuren2 = new ArrayList<Figur3D>();
         figuren2.add(new Quader(new Rechteck(10, 10), 10));
         figuren2.add(new VierseitigePyramide(new Rechteck(10, 10), 10));
-        List<Figur3D<Dreieck>> figuren3 = new ArrayList<Figur3D<Dreieck>>();
+        List<Figur3D> figuren3 = new ArrayList<Figur3D>();
         figuren3.add(new Dreiecksprisma(new Dreieck(3, 4, 5), 10));
         figuren3.add(new DreiseitigePyramide(new Dreieck(3, 4, 5), 10));
         System.out.println("3D Kreisfiguren: \n");

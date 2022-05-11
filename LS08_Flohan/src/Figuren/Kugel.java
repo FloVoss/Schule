@@ -1,20 +1,19 @@
 package LS08_Flohan.src.Figuren;
 
-public class Kugel extends Figur3D<Kreis>{
-    public Kugel(Kreis grundflaeche, double hoehe) {
-        super(grundflaeche, hoehe);
+public class Kugel implements Figur3D{
+    private double radius;
+    public Kugel(double radius) {
+        super();
+        this.radius = radius;
     }
     @Override
     public double volumen() {
-        double flaeche = grundflaeche.flaeche();
-        double hoehe = this.hoehe;
-        double something = 4.00/3.00;
-        return something * hoehe * flaeche;
+        return 4.00/3.00 * Math.PI * Math.pow(radius, 3);
     }
 
     @Override
     public double oberflaeche() {
-        return 2 * hoehe * grundflaeche.umfang();
+        return 4 * Math.PI * Math.pow(radius, 2);
     }
     
 }
