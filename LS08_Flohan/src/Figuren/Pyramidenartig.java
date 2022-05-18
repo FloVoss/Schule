@@ -10,17 +10,11 @@ public abstract class Pyramidenartig<T extends IFigur2D> implements Figur3D, IMa
     }
     @Override
     public double oberflaeche() {
-        double flaeche = grundflaeche.flaeche();
-        double mantel = this.mantelFlaeche();
-        double oberflaeche = flaeche + mantel;
-        return oberflaeche;
+        return grundflaeche.flaeche() + this.mantelFlaeche();
     }
 
     @Override
     public double volumen() {
-        double flaeche = grundflaeche.flaeche();
-        double höhe = hoehe;
-        double volumen = flaeche * höhe / 3.00;
-        return volumen;
+        return grundflaeche.flaeche() * hoehe / 3.00;
     }
 }

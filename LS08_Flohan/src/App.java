@@ -20,8 +20,10 @@ import LS08_Flohan.src.Fuhrpark.Kfz;
 import LS08_Flohan.src.Fuhrpark.Lkw;
 import LS08_Flohan.src.Fuhrpark.Personentransportfahrzeug;
 import LS08_Flohan.src.Mitarbeiter.Abteilung;
+import LS08_Flohan.src.Mitarbeiter.BueroArbeiter;
 import LS08_Flohan.src.Mitarbeiter.Fahrer;
 import LS08_Flohan.src.Mitarbeiter.Manager;
+import LS08_Flohan.src.Mitarbeiter.Mitarbeiter;
 import LS08_Flohan.src.Mitarbeiter.Verwaltung;
 
 /**
@@ -83,5 +85,17 @@ public class App {
 
         Verwaltung verwaltung = new Verwaltung();
 
+        Set<Mitarbeiter> setMitarbeiter = new TreeSet<Mitarbeiter>();
+        ArrayList<Mitarbeiter> arrListMitarbeiter = new ArrayList<SchichtArbeiter>();
+        List<Mitarbeiter> listMitarbeiter = new ArrayList<Mitarbeiter>();
+        LinkedList<BueroArbeiter> liliBueroArbeiter = new LinkedList<Manager>();
+        List<BueroArbeiter> listBueroArbeiter = new LinkedList<BueroArbeiter>();
+    }
+    public static void ausgabe(List<Mitarbeiter> mitList)
+    {
+        for(Mitarbeiter m : mitList)
+        {
+            System.out.println( m.toString());
+        }
     }
 }
