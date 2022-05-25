@@ -1,6 +1,6 @@
 package LS08_Flohan.src.Figuren;
 
-public class Kugel implements Figur3D{
+public class Kugel implements IFigur3D{
     private double radius;
     public Kugel(double radius) {
         super();

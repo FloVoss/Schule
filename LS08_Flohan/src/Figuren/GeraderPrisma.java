@@ -1,6 +1,6 @@
 package LS08_Flohan.src.Figuren;
 
-public abstract class GeraderPrisma<T extends IFigur2D> implements Figur3D
+public abstract class GeraderPrisma<T extends IFigur2D> implements IFigur3D
 {
     double hoehe;
     T grundflaeche;

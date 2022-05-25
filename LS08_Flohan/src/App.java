@@ -6,8 +6,7 @@ import java.util.*;
 import LS08_Flohan.src.Figuren.Dreieck;
 import LS08_Flohan.src.Figuren.Dreiecksprisma;
 import LS08_Flohan.src.Figuren.DreiseitigePyramide;
-import LS08_Flohan.src.Figuren.Figur3D;
-
+import LS08_Flohan.src.Figuren.IFigur3D;
 import LS08_Flohan.src.Figuren.Kreis;
 import LS08_Flohan.src.Figuren.Kreiskegel;
 import LS08_Flohan.src.Figuren.Kugel;
@@ -25,6 +24,7 @@ import LS08_Flohan.src.Mitarbeiter.Fahrer;
 import LS08_Flohan.src.Mitarbeiter.Manager;
 import LS08_Flohan.src.Mitarbeiter.Mitarbeiter;
 import LS08_Flohan.src.Mitarbeiter.Verwaltung;
+import LS08_Flohan.src.Preiskalkulationen.Preiskalkulation;
 
 /**
  * App class zum testen
@@ -43,14 +43,14 @@ public class App {
         }
         
         
-        List<Figur3D> figuren = new ArrayList<Figur3D>();
+        List<IFigur3D> figuren = new ArrayList<IFigur3D>();
         figuren.add(new Kreiskegel(new Kreis(10), 10));
         figuren.add(new Zylinder(new Kreis(10), 10));
         figuren.add(new Kugel(10));
-        List<Figur3D> figuren2 = new ArrayList<Figur3D>();
+        List<IFigur3D> figuren2 = new ArrayList<IFigur3D>();
         figuren2.add(new Quader(new Rechteck(10, 10), 10));
         figuren2.add(new VierseitigePyramide(new Rechteck(10, 10), 10));
-        List<Figur3D> figuren3 = new ArrayList<Figur3D>();
+        List<IFigur3D> figuren3 = new ArrayList<IFigur3D>();
         figuren3.add(new Dreiecksprisma(new Dreieck(3, 4, 5), 10));
         figuren3.add(new DreiseitigePyramide(new Dreieck(3, 4, 5), 10));
         System.out.println("3D Kreisfiguren: \n");
@@ -86,16 +86,16 @@ public class App {
         Verwaltung verwaltung = new Verwaltung();
 
         Set<Mitarbeiter> setMitarbeiter = new TreeSet<Mitarbeiter>();
-        ArrayList<Mitarbeiter> arrListMitarbeiter = new ArrayList<SchichtArbeiter>();
+        //ArrayList<Mitarbeiter> arrListMitarbeiter = new ArrayList<SchichtArbeiter>();
         List<Mitarbeiter> listMitarbeiter = new ArrayList<Mitarbeiter>();
-        LinkedList<BueroArbeiter> liliBueroArbeiter = new LinkedList<Manager>();
+        //LinkedList<BueroArbeiter> liliBueroArbeiter = new LinkedList<Manager>();
         List<BueroArbeiter> listBueroArbeiter = new LinkedList<BueroArbeiter>();
-    }
-    public static void ausgabe(List<Mitarbeiter> mitList)
-    {
-        for(Mitarbeiter m : mitList)
+        try
         {
-            System.out.println( m.toString());
+            Preiskalkulation.berechnePreis();
+        }catch(Exception ex)
+        {
+            System.out.println(ex.getMessage());
         }
     }
 }
