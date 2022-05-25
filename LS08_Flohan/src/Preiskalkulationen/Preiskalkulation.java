@@ -32,14 +32,14 @@ public class Preiskalkulation {
     }
     public static double berechnePreis() throws Exception
     {   
-        Scanner scanner = new Scanner(new File("C:\\Users\\florian.voss\\Downloads\\Materialpreise Oberflaechen.csv"));
+        Scanner scanner = new Scanner(new File("C:\\Users\\florian.voss\\Downloads\\Materialpreise Oberflaechen.csv"), "UTF-8");
         scanner.useDelimiter("\t|\n");
         while(scanner.hasNext())
         {
             oberflaeche.put(scanner.next(), Double.parseDouble(scanner.next().replace(',', '.')));
         }
         scanner.close();
-        Scanner scanner2 = new Scanner(new File("C:\\Users\\florian.voss\\Downloads\\Materialpreise Fuellung.csv"));
+        Scanner scanner2 = new Scanner(new File("C:\\Users\\florian.voss\\Downloads\\Materialpreise Fuellung.csv"), "UTF-8");
         scanner2.useDelimiter(";|\n");
         while(scanner2.hasNext())
         {
