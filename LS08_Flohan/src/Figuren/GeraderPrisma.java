@@ -13,7 +13,6 @@ public abstract class GeraderPrisma<T extends IFigur2D> implements IFigur3D
         return grundflaeche.flaeche() * hoehe;
     }
     public GeraderPrisma(T grundflaeche, double hoehe) {
-        super();
         this.grundflaeche = grundflaeche;
         this.hoehe = hoehe;
     }

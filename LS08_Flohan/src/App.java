@@ -2,10 +2,10 @@ package LS08_Flohan.src;
 
 import java.util.*;
 
-
 import LS08_Flohan.src.Figuren.Dreieck;
 import LS08_Flohan.src.Figuren.Dreiecksprisma;
 import LS08_Flohan.src.Figuren.DreiseitigePyramide;
+import LS08_Flohan.src.Figuren.IFigur2D;
 import LS08_Flohan.src.Figuren.IFigur3D;
 import LS08_Flohan.src.Figuren.Kreis;
 import LS08_Flohan.src.Figuren.Kreiskegel;
@@ -41,8 +41,20 @@ public class App {
             kfz2.fahrenZu(new Gps(90, 90));
             kfz2.parken();
         }
-        
-        
+        boolean validInput = false;
+        Scanner sc = new Scanner(System.in);
+        while (!validInput) {
+            String input = sc.nextLine();
+            try {
+                Integer.parseInt(input);
+                validInput = true;
+
+            } catch (NumberFormatException e) {
+                System.out.println(e.getMessage());
+                e.printStackTrace();
+            }
+        }
+
         List<IFigur3D> figuren = new ArrayList<IFigur3D>();
         figuren.add(new Kreiskegel(new Kreis(10), 10));
         figuren.add(new Zylinder(new Kreis(10), 10));
@@ -54,29 +66,25 @@ public class App {
         figuren3.add(new Dreiecksprisma(new Dreieck(3, 4, 5), 10));
         figuren3.add(new DreiseitigePyramide(new Dreieck(3, 4, 5), 10));
         System.out.println("3D Kreisfiguren: \n");
-        for(var item : figuren)
-        {
+        for (var item : figuren) {
             System.out.println(item.volumen() + "\n" + item.oberflaeche() + "\n");
         }
         System.out.println("3D Rechteckige Figuren: \n");
-        for(var item : figuren2)
-        {
+        for (var item : figuren2) {
             System.out.println(item.volumen() + "\n" + item.oberflaeche() + "\n");
         }
         System.out.println("3D Dreieckige Figuren: \n");
-        for(var item : figuren3)
-        {
+        for (var item : figuren3) {
             System.out.println(item.volumen() + "\n" + item.oberflaeche() + "\n");
         }
 
-        Lkw lkw = new Lkw(50,new Gps(1.0, 2.0), 0);
+        Lkw lkw = new Lkw(50, new Gps(1.0, 2.0), 0);
         lkw.beladen(35.4);
         lkw.entladen(44.5);
         lkw.beladen(54);
         lkw.entladen(26);
         lkw.beladen(48);
         lkw.entladen(75);
-
 
         for (int i = 1; i <= 10; i++) {
             lkw.beladen(Math.random());
@@ -86,16 +94,24 @@ public class App {
         Verwaltung verwaltung = new Verwaltung();
 
         Set<Mitarbeiter> setMitarbeiter = new TreeSet<Mitarbeiter>();
-        //ArrayList<Mitarbeiter> arrListMitarbeiter = new ArrayList<SchichtArbeiter>();
+        // ArrayList<Mitarbeiter> arrListMitarbeiter = new ArrayList<SchichtArbeiter>();
         List<Mitarbeiter> listMitarbeiter = new ArrayList<Mitarbeiter>();
-        //LinkedList<BueroArbeiter> liliBueroArbeiter = new LinkedList<Manager>();
+        // LinkedList<BueroArbeiter> liliBueroArbeiter = new LinkedList<Manager>();
         List<BueroArbeiter> listBueroArbeiter = new LinkedList<BueroArbeiter>();
-        try
-        {
+        try {
             Preiskalkulation.berechnePreis();
-        }catch(Exception ex)
-        {
+        } catch (Exception ex) {
             System.out.println(ex.getMessage());
         }
+        Set<IFigur3D> gruppe = new HashSet<GeradesPrisma>();
+        Set<? extends IFigur2D> hset = new HashSet<Kreis>();
+        Collection<IFigur3D> abc = new LinkedList<IFigur3D>();
+        Set<? super ZusammengesetzteFigur> sterne = new TreeSet<Stern>();
+        Collection<? super IFigur2D> hset2 = new HashSet<IFigur2D>();
+        Collection<? extends Kreis> collection = new HashSet<Kreis>(); 
+        TreeSet<IFigur2D> set = new SortedSet<IFigur2D>();
+        Set<? super Stern> sterne2 = new HashSet<ZusammengesetzteFigur>();
+        List<IFigur3D> list = new LinkedList<Kugel>();
+        Map<? extends Number, ? extends IFigur2D> mapFiguren = new TreeMap<Integer, Dreieck>();
     }
 }

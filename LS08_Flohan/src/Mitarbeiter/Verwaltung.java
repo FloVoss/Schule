@@ -24,7 +24,6 @@ public class Verwaltung {
 
     public void add(Kfz neues) {
         fuhrpark.add(neues);
-
     }
 
     public void remove(Kfz altes) {

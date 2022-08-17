@@ -3,7 +3,6 @@ package LS08_Flohan.src.Figuren;
 public class Kugel implements IFigur3D{
     private double radius;
     public Kugel(double radius) {
-        super();
         this.radius = radius;
     }
     @Override
