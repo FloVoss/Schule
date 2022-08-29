@@ -1,4 +1,4 @@
-package LS08_Flohan.src.Figuren;
+package Figuren;
 
 public class Kugel implements IFigur3D{
     private double radius;

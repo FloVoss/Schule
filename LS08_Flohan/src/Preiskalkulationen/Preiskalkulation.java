@@ -1,4 +1,4 @@
-package LS08_Flohan.src.Preiskalkulationen;
+package Preiskalkulationen;
 
 import java.io.File;
 import java.nio.file.ClosedWatchServiceException;
@@ -7,7 +7,7 @@ import java.util.Map;
 import java.util.Scanner;
 import java.util.TreeMap;
 
-import LS08_Flohan.src.Figuren.IFigur3D;
+import Figuren.IFigur3D;
 
 public class Preiskalkulation {
     private double preis;

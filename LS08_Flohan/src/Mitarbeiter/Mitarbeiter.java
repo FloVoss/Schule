@@ -1,4 +1,4 @@
-package LS08_Flohan.src.Mitarbeiter;
+package Mitarbeiter;
 
 public abstract class Mitarbeiter implements Comparable<Mitarbeiter> {
     private int id;

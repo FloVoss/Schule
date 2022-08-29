@@ -1,4 +1,4 @@
-package LS08_Flohan.src.Figuren;
+package Figuren;
 
 
 public class Dreieck implements IFigur2D {

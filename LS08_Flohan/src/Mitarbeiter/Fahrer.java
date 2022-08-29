@@ -1,7 +1,7 @@
-package LS08_Flohan.src.Mitarbeiter;
+package Mitarbeiter;
 
-import LS08_Flohan.src.Fuhrpark.Gps;
-import LS08_Flohan.src.Fuhrpark.Kfz;
+import Fuhrpark.Gps;
+import Fuhrpark.Kfz;
 
 public class Fahrer extends Schichtarbeiter {
     public String fuehrerscheinKlasse;

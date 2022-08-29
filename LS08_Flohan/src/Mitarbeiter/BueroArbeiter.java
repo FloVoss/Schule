@@ -1,4 +1,4 @@
-package LS08_Flohan.src.Mitarbeiter;
+package Mitarbeiter;
 
 public class BueroArbeiter extends Mitarbeiter {
     private double festGehalt;

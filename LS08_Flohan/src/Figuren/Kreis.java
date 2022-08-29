@@ -1,4 +1,4 @@
-package LS08_Flohan.src.Figuren;
+package Figuren;
 
 public class Kreis implements IFigur2D{
     private double radius;

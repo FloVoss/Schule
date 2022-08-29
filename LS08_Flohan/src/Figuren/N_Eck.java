@@ -1,4 +1,4 @@
-package LS08_Flohan.src.Figuren;
+package Figuren;
 
 public class N_Eck implements IFigur2D {
     private double seitenLaenge;

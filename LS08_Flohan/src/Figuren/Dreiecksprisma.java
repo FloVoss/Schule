@@ -1,4 +1,4 @@
-package LS08_Flohan.src.Figuren;
+package Figuren;
 
 public class Dreiecksprisma extends GeraderPrisma<Dreieck> {
     public Dreiecksprisma(Dreieck grundflaeche, double hoehe) {

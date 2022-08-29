@@ -1,4 +1,4 @@
-package LS08_Flohan.src.Fuhrpark;
+package Fuhrpark;
 
 public class Gps {
     private double laengenGrad;

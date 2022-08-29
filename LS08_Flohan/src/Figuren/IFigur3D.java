@@ -1,4 +1,4 @@
-package LS08_Flohan.src.Figuren;
+package Figuren;
 
 public interface IFigur3D{
     public abstract double volumen();

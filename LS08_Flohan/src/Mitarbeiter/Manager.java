@@ -1,4 +1,4 @@
-package LS08_Flohan.src.Mitarbeiter;
+package Mitarbeiter;
 
 public class Manager extends BueroArbeiter{
     private double bonusSatz;

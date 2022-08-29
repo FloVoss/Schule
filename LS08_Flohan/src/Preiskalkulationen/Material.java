@@ -1,4 +1,4 @@
-package LS08_Flohan.src.Preiskalkulationen;
+package Preiskalkulationen;
 
 public class Material {
     private String oberflaeche;

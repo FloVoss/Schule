@@ -1,11 +1,11 @@
-package LS08_Flohan.src.Mitarbeiter;
+package Mitarbeiter;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import LS08_Flohan.src.Fuhrpark.Kfz;
-import LS08_Flohan.src.Fuhrpark.Lkw;
+import Fuhrpark.Kfz;
+import Fuhrpark.Lkw;
 
 
 public class Verwaltung {

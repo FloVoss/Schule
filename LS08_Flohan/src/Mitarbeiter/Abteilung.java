@@ -1,4 +1,4 @@
-package LS08_Flohan.src.Mitarbeiter;
+package Mitarbeiter;
 
 import java.util.ArrayList;
 import java.util.List;

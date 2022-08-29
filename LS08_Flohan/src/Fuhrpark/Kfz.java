@@ -1,6 +1,6 @@
-package LS08_Flohan.src.Fuhrpark;
+package Fuhrpark;
 
-import LS08_Flohan.src.Mitarbeiter.Fahrer;
+import Mitarbeiter.Fahrer;
 
 public abstract class Kfz {
     private double tankGroesse;

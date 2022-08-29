@@ -1,4 +1,4 @@
-package LS08_Flohan.src.Figuren;
+package Figuren;
 
 public class VierseitigePyramide extends Pyramidenartig<Rechteck> {
     public VierseitigePyramide(Rechteck grundflaeche, double hoehe) {

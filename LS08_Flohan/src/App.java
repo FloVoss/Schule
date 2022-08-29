@@ -1,30 +1,35 @@
-package LS08_Flohan.src;
 
+
+import java.awt.Color;
 import java.util.*;
 
-import LS08_Flohan.src.Figuren.Dreieck;
-import LS08_Flohan.src.Figuren.Dreiecksprisma;
-import LS08_Flohan.src.Figuren.DreiseitigePyramide;
-import LS08_Flohan.src.Figuren.IFigur2D;
-import LS08_Flohan.src.Figuren.IFigur3D;
-import LS08_Flohan.src.Figuren.Kreis;
-import LS08_Flohan.src.Figuren.Kreiskegel;
-import LS08_Flohan.src.Figuren.Kugel;
-import LS08_Flohan.src.Figuren.Quader;
-import LS08_Flohan.src.Figuren.Rechteck;
-import LS08_Flohan.src.Figuren.VierseitigePyramide;
-import LS08_Flohan.src.Figuren.Zylinder;
-import LS08_Flohan.src.Fuhrpark.Gps;
-import LS08_Flohan.src.Fuhrpark.Kfz;
-import LS08_Flohan.src.Fuhrpark.Lkw;
-import LS08_Flohan.src.Fuhrpark.Personentransportfahrzeug;
-import LS08_Flohan.src.Mitarbeiter.Abteilung;
-import LS08_Flohan.src.Mitarbeiter.BueroArbeiter;
-import LS08_Flohan.src.Mitarbeiter.Fahrer;
-import LS08_Flohan.src.Mitarbeiter.Manager;
-import LS08_Flohan.src.Mitarbeiter.Mitarbeiter;
-import LS08_Flohan.src.Mitarbeiter.Verwaltung;
-import LS08_Flohan.src.Preiskalkulationen.Preiskalkulation;
+import javax.swing.JFrame;
+
+import Figuren.Dreieck;
+import Figuren.Dreiecksprisma;
+import Figuren.DreiseitigePyramide;
+import Figuren.IFigur2D;
+import Figuren.IFigur3D;
+import Figuren.Kreis;
+import Figuren.Kreiskegel;
+import Figuren.Kugel;
+import Figuren.Quader;
+import Figuren.Rechteck;
+import Figuren.VierseitigePyramide;
+import Figuren.Zylinder;
+import Fuhrpark.Gps;
+import Fuhrpark.Kfz;
+import Fuhrpark.Lkw;
+import Fuhrpark.Personentransportfahrzeug;
+import Mitarbeiter.Abteilung;
+import Mitarbeiter.BueroArbeiter;
+import Mitarbeiter.Fahrer;
+import Mitarbeiter.Manager;
+import Mitarbeiter.Mitarbeiter;
+import Mitarbeiter.Verwaltung;
+import Preiskalkulationen.Preiskalkulation;
+
+import View.MainFrame;
 
 /**
  * App class zum testen
@@ -32,86 +37,6 @@ import LS08_Flohan.src.Preiskalkulationen.Preiskalkulation;
 public class App {
 
     public static void main(String[] args) {
-        Abteilung abt = new Abteilung("IT", new Manager(5011, "Tim", 4000.00, 2.00));
-        System.out.println(abt.gehaltsliste());
-        Kfz kfz = new Lkw(50, new Gps(0.0, 0.0), 0);
-        kfz.einsteigenFahrer(new Fahrer(0, "name", "C"));
-        List<Kfz> kfzs = Arrays.asList(kfz, new Personentransportfahrzeug(55, new Gps(0, 0), 6));
-        for (Kfz kfz2 : kfzs) {
-            kfz2.fahrenZu(new Gps(90, 90));
-            kfz2.parken();
-        }
-        boolean validInput = false;
-        Scanner sc = new Scanner(System.in);
-        while (!validInput) {
-            String input = sc.nextLine();
-            try {
-                Integer.parseInt(input);
-                validInput = true;
-
-            } catch (NumberFormatException e) {
-                System.out.println(e.getMessage());
-                e.printStackTrace();
-            }
-        }
-
-        List<IFigur3D> figuren = new ArrayList<IFigur3D>();
-        figuren.add(new Kreiskegel(new Kreis(10), 10));
-        figuren.add(new Zylinder(new Kreis(10), 10));
-        figuren.add(new Kugel(10));
-        List<IFigur3D> figuren2 = new ArrayList<IFigur3D>();
-        figuren2.add(new Quader(new Rechteck(10, 10), 10));
-        figuren2.add(new VierseitigePyramide(new Rechteck(10, 10), 10));
-        List<IFigur3D> figuren3 = new ArrayList<IFigur3D>();
-        figuren3.add(new Dreiecksprisma(new Dreieck(3, 4, 5), 10));
-        figuren3.add(new DreiseitigePyramide(new Dreieck(3, 4, 5), 10));
-        System.out.println("3D Kreisfiguren: \n");
-        for (var item : figuren) {
-            System.out.println(item.volumen() + "\n" + item.oberflaeche() + "\n");
-        }
-        System.out.println("3D Rechteckige Figuren: \n");
-        for (var item : figuren2) {
-            System.out.println(item.volumen() + "\n" + item.oberflaeche() + "\n");
-        }
-        System.out.println("3D Dreieckige Figuren: \n");
-        for (var item : figuren3) {
-            System.out.println(item.volumen() + "\n" + item.oberflaeche() + "\n");
-        }
-
-        Lkw lkw = new Lkw(50, new Gps(1.0, 2.0), 0);
-        lkw.beladen(35.4);
-        lkw.entladen(44.5);
-        lkw.beladen(54);
-        lkw.entladen(26);
-        lkw.beladen(48);
-        lkw.entladen(75);
-
-        for (int i = 1; i <= 10; i++) {
-            lkw.beladen(Math.random());
-            lkw.entladen(Math.random());
-        }
-
-        Verwaltung verwaltung = new Verwaltung();
-
-        Set<Mitarbeiter> setMitarbeiter = new TreeSet<Mitarbeiter>();
-        // ArrayList<Mitarbeiter> arrListMitarbeiter = new ArrayList<SchichtArbeiter>();
-        List<Mitarbeiter> listMitarbeiter = new ArrayList<Mitarbeiter>();
-        // LinkedList<BueroArbeiter> liliBueroArbeiter = new LinkedList<Manager>();
-        List<BueroArbeiter> listBueroArbeiter = new LinkedList<BueroArbeiter>();
-        try {
-            Preiskalkulation.berechnePreis();
-        } catch (Exception ex) {
-            System.out.println(ex.getMessage());
-        }
-        Set<IFigur3D> gruppe = new HashSet<GeradesPrisma>();
-        Set<? extends IFigur2D> hset = new HashSet<Kreis>();
-        Collection<IFigur3D> abc = new LinkedList<IFigur3D>();
-        Set<? super ZusammengesetzteFigur> sterne = new TreeSet<Stern>();
-        Collection<? super IFigur2D> hset2 = new HashSet<IFigur2D>();
-        Collection<? extends Kreis> collection = new HashSet<Kreis>(); 
-        TreeSet<IFigur2D> set = new SortedSet<IFigur2D>();
-        Set<? super Stern> sterne2 = new HashSet<ZusammengesetzteFigur>();
-        List<IFigur3D> list = new LinkedList<Kugel>();
-        Map<? extends Number, ? extends IFigur2D> mapFiguren = new TreeMap<Integer, Dreieck>();
+        MainFrame mainframe = new MainFrame();
     }
 }
