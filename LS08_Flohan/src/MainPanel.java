@@ -2,6 +2,7 @@ import javax.swing.*;
 import javax.swing.border.Border;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.JTableHeader;
+import javax.swing.table.TableCellRenderer;
 
 import java.awt.*;
 
@@ -49,16 +50,28 @@ public class MainPanel extends JPanel{
     private JLabel gehaltsSumme = new JLabel("Gehaltssumme: 17200€");
     private JLabel headerlabel = new JLabel("Abteilung: DevOps");
     private JTextField searchfield = new JTextField("Suche");
-
+    private JCheckBox checkbox = new JCheckBox();
+    
     public MainPanel() {
         super();
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         setBackground(Color.white);
-
+        
         headerpanel.setLayout(new BoxLayout(headerpanel, BoxLayout.X_AXIS));
         headerpanel.setBackground(Color.white);
         headerlabel.setFont(new Font("Arial", Font.BOLD, 30));
-        
+        // table.getColumnModel().getColumn(0).setCellRenderer(new TableCellRenderer() {
+
+        //     @Override
+        //     public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected,
+        //             boolean hasFocus, int row, int column) {
+        //         if(value instanceof Boolean){
+        //             checkbox.setSelected(Boolean.TRUE.equals(value));
+        //         }
+        //         return checkbox;
+        //     }
+
+        // });
         downloadbutton.setFont(buttonfont);
         downloadbutton.setBackground(Color.white);
         downloadbutton.setBorder(buttonborder);
