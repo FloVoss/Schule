@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.util.*;
 
 import javax.swing.JFrame;
+import javax.swing.SwingUtilities;
 
 import Figuren.Dreieck;
 import Figuren.Dreiecksprisma;
@@ -37,6 +38,12 @@ import View.MainFrame;
 public class App {
 
     public static void main(String[] args) {
-        MainFrame mainframe = new MainFrame();
+        SwingUtilities.invokeLater(new Runnable(){
+
+            @Override
+            public void run() {
+                new MainFrame();    
+            }            
+        });
     }
 }
