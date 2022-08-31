@@ -58,7 +58,7 @@ public class MainPanel extends JPanel{
         headerpanel.setLayout(new BoxLayout(headerpanel, BoxLayout.X_AXIS));
         headerpanel.setBackground(Color.white);
         headerlabel.setFont(new Font("Arial", Font.BOLD, 30));
-        table.getColumnModel().getColumns().asIterator().forEachRemaining((column) -> column.getHeaderValue() == "" ? render.set);
+        
         downloadbutton.setFont(buttonfont);
         downloadbutton.setBackground(Color.white);
         downloadbutton.setBorder(buttonborder);
