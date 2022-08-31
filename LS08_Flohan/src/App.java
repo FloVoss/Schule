@@ -1,5 +1,4 @@
 
-
 import java.awt.Color;
 import java.util.*;
 
@@ -30,20 +29,17 @@ import Mitarbeiter.Mitarbeiter;
 import Mitarbeiter.Verwaltung;
 import Preiskalkulationen.Preiskalkulation;
 
-import View.MainFrame;
-
 /**
  * App class zum testen
  */
 public class App {
 
     public static void main(String[] args) {
-        SwingUtilities.invokeLater(new Runnable(){
-
+        SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {
-                new MainFrame();    
-            }            
+                new MainFrame();
+            }
         });
     }
 }
