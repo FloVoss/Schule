@@ -32,18 +32,18 @@ public class MainPanel extends JPanel {
 
     // Dummy Data
     private String[] columns = new String[] { "", "Name", "ID", "Abteilung", "Typ", "Gehalt" };
-    // private Object[][] rows = new Object[][] {
-    // {false, "Hans Hannebrück", "5300", "DevOps", "Manager", "7500€" },
-    // {false, "Max Mustermann", "5111", "Buchhaltung", "Fahrer", "2500€" },
-    // {false, "Anna Belka", "5613", "", "Büro", "3000€" },
-    // {false, "Thorsten Trainer", "5333", "", "Schichtarbeiter", "4000€"},
-    // {false, "Marius Miesepeter", "3555", "", "Büroarbeiter", "6000€"},
-    // {false, "Gieseler Grevenbruch", "5999", "", "Schichtarbeiter", "4500€"},
-    // {false, "Martin Murks", "5400", "", "Schichtarbeiter", "4200€"},
-    // {false, "Dardan Drucks", "5600", "", "Büroarbeiter", "7600€"},
-    // {false, "Eric Eierbaum", "6300", "", "Büroarbeiter", "7600€"},
-    // {false, "Dardan Drucks", "4800", "", "Büroarbeiter", "7600€"}
-    // };
+    private Object[][] rows = new Object[][] {
+        {false, "Hans Hannebrück", "5300", "DevOps", "Manager", "7500€" },
+        {false, "Max Mustermann", "5111", "Buchhaltung", "Fahrer", "2500€" },
+        {false, "Anna Belka", "5613", "", "Büro", "3000€" },
+        {false, "Thorsten Trainer", "5333", "", "Schichtarbeiter", "4000€"},
+        {false, "Marius Miesepeter", "3555", "", "Büroarbeiter", "6000€"},
+        {false, "Gieseler Grevenbruch", "5999", "", "Schichtarbeiter", "4500€"},
+        {false, "Martin Murks", "5400", "", "Schichtarbeiter", "4200€"},
+        {false, "Dardan Drucks", "5600", "", "Büroarbeiter", "7600€"},
+        {false, "Eric Eierbaum", "6300", "", "Büroarbeiter", "7600€"},
+        {false, "Dardan Drucks", "4800", "", "Büroarbeiter", "7600€"}
+    };
 
     // Styles
     private Dimension buttonsize = new Dimension(200, 30);
@@ -82,14 +82,14 @@ public class MainPanel extends JPanel {
         headerpanel.setBackground(Color.white);
         headerlabel.setFont(new Font("Arial", Font.BOLD, 30));
         ArrayList<Mitarbeiter> mitarbeiter = abteilung.getMitarbeiter();
-        Object[][] data = new Object[columns.length][mitarbeiter.size()];
-        for(int j = 1; j < columns.length; j++){
-            for(int i = 0; i < mitarbeiter.size(); i++){    
-                Mitarbeiter current = mitarbeiter.get(i);
-                data[j][i] = current.getName() + current.getId() + abteilung + current.getClass().getName() + current.einkommen();
-            }
-        }
-        tablemodel.setDataVector(data, columns);
+        // Object[][] data = new Object[columns.length][mitarbeiter.size()];
+        // for(int j = 1; j < columns.length; j++){
+        //     for(int i = 0; i < mitarbeiter.size(); i++){    
+        //         Mitarbeiter current = mitarbeiter.get(i);
+        //         data[j][i] = current.getName() + current.getId() + abteilung + current.getClass().getName() + current.einkommen();
+        //     }
+        // }
+        tablemodel.setDataVector(rows, columns);
         table = new JTable(tablemodel);
         header = table.getTableHeader();
         renderer = (DefaultTableCellRenderer) table.getDefaultRenderer(Object.class);
