@@ -37,6 +37,6 @@ import Preiskalkulationen.Preiskalkulation;
 public class App {
 
     public static void main(String[] args) {
-        JFrame frame = new MainFrame();
+        SwingUtilities.invokeLater(() -> new MainFrame());
     }
 }
