@@ -4,6 +4,7 @@ import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
+import javax.swing.event.MouseInputListener;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.JTableHeader;
 import javax.swing.table.TableCellRenderer;
@@ -12,31 +13,43 @@ import javax.swing.table.TableModel;
 import javax.swing.text.TableView.TableRow;
 import javax.xml.crypto.Data;
 
+import Mitarbeiter.Abteilung;
+import Mitarbeiter.BueroArbeiter;
+import Mitarbeiter.Manager;
+import Mitarbeiter.Mitarbeiter;
+import Mitarbeiter.Schichtarbeiter;
 import java.awt.*;
+import java.awt.Dimension;
+import java.awt.Font;
+import java.awt.event.MouseEvent;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
+import java.util.Vector;
+import java.awt.Color;
 
 public class MainPanel extends JPanel{
-
+    
     // Dummy Data
     private String[] columns = new String[] {"", "Name", "ID", "Abteilung", "Typ", "Gehalt" };
-    private Object[][] rows = new Object[][] {
-            {false, "Hans Hannebrück", "5300", "DevOps", "Manager", "7500€" },
-            {false, "Max Mustermann", "5111", "Buchhaltung", "Fahrer", "2500€" },
-            {false, "Anna Belka", "5613", "", "Büro", "3000€" },
-            {false, "Thorsten Trainer", "5333", "", "Schichtarbeiter", "4000€"},
-            {false, "Marius Miesepeter", "3555", "", "Büroarbeiter", "6000€"},
-            {false, "Gieseler Grevenbruch", "5999", "", "Schichtarbeiter", "4500€"},
-            {false,  "Martin Murks", "5400", "", "Schichtarbeiter", "4200€"},
-            {false, "Dardan Drucks", "5600", "", "Büroarbeiter", "7600€"},
-            {false, "Eric Eierbaum", "6300", "", "Büroarbeiter", "7600€"},
-            {false, "Dardan Drucks", "4800", "", "Büroarbeiter", "7600€"}
-    };
+    // private Object[][] rows = new Object[][] {
+    //         {false, "Hans Hannebrück", "5300", "DevOps", "Manager", "7500€" },
+    //         {false, "Max Mustermann", "5111", "Buchhaltung", "Fahrer", "2500€" },
+    //         {false, "Anna Belka", "5613", "", "Büro", "3000€" },
+    //         {false, "Thorsten Trainer", "5333", "", "Schichtarbeiter", "4000€"},
+    //         {false, "Marius Miesepeter", "3555", "", "Büroarbeiter", "6000€"},
+    //         {false, "Gieseler Grevenbruch", "5999", "", "Schichtarbeiter", "4500€"},
+    //         {false,  "Martin Murks", "5400", "", "Schichtarbeiter", "4200€"},
+    //         {false, "Dardan Drucks", "5600", "", "Büroarbeiter", "7600€"},
+    //         {false, "Eric Eierbaum", "6300", "", "Büroarbeiter", "7600€"},
+    //         {false, "Dardan Drucks", "4800", "", "Büroarbeiter", "7600€"}
+    // };
 
     // Styles
     private Dimension buttonsize = new Dimension(200, 30);
     private Font buttonfont = new Font("Arial", Font.BOLD, 16);
     private Border buttonborder = BorderFactory.createLineBorder(Color.black, 2);
-    
+    private Abteilung abteilung = new Abteilung("DevOps", new Manager(5099, "Hans Hosenscheißer", 12000, 1.4));
     private JPanel headerpanel = new JPanel();
     private JPanel leiterpanel = new JPanel();
     private JPanel searchpanel = new JPanel();
@@ -58,10 +71,25 @@ public class MainPanel extends JPanel{
         super();
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         setBackground(Color.white);
+        abteilung.setMitarbeiter(new ArrayList<Mitarbeiter>(Arrays.asList(
+            new BueroArbeiter(1000 , "Peter Reinsch", 4000),
+            new Schichtarbeiter(3000, "Hans Hannebrück", 10),
+            new Schichtarbeiter(3001, "Max Mustermann", 10),
+            new BueroArbeiter(1001, "Benjamin Beispiel", 2700)
+        )));    
+        
         headerpanel.setLayout(new BoxLayout(headerpanel, BoxLayout.X_AXIS));
         headerpanel.setBackground(Color.white);
         headerlabel.setFont(new Font("Arial", Font.BOLD, 30));
-        tablemodel.setDataVector(rows, columns);
+        ArrayList<Mitarbeiter> mitarbeiter = abteilung.getMitarbeiter();
+        Object[][] data = new Object[columns.length][mitarbeiter.size()];
+        for(int j = 0; j < columns.length; j++){
+            for(int i = 1; i < mitarbeiter.size(); i++){    
+                Mitarbeiter current = mitarbeiter.get(i);
+                data[j][i] = "false" 
+            }
+        }
+        tablemodel.setDataVector(data, columns);
         table = new JTable(tablemodel);
         header = table.getTableHeader();
         renderer = (DefaultTableCellRenderer) table.getDefaultRenderer(Object.class);
@@ -136,7 +164,7 @@ public class MainPanel extends JPanel{
         add(Box.createRigidArea(new Dimension(JFrame.MAXIMIZED_HORIZ, 30)));
         add(searchpanel);
         add(Box.createRigidArea(new Dimension(JFrame.MAXIMIZED_HORIZ, 10)));
-
+        table.addMouseListener(new CustomMouseListener());
         table.setFont(new Font("Arial", Font.PLAIN, 16));
         table.setRowHeight(50);
         header.setPreferredSize(new Dimension(100, 50));
@@ -145,6 +173,54 @@ public class MainPanel extends JPanel{
         add(new JScrollPane(table));
         add(Box.createRigidArea(new Dimension(0, 50)));
         add(bottompanel);
+    }
+    class CustomMouseListener implements MouseInputListener{
+
+        @Override
+        public void mouseClicked(MouseEvent e) {
+            JTable temp = (JTable) e.getSource();
+            int row = temp.getSelectedRow();
+            String name = (String) temp.getValueAt(row, 1);
+            String typ = (String) temp.getValueAt(row, 4);
+            // new MitarbeiterForm(abteilung, );
+        }
+
+        @Override
+        public void mousePressed(MouseEvent e) {
+            // TODO Auto-generated method stub
+            
+        }
+
+        @Override
+        public void mouseReleased(MouseEvent e) {
+            // TODO Auto-generated method stub
+            
+        }
+
+        @Override
+        public void mouseEntered(MouseEvent e) {
+            // TODO Auto-generated method stub
+            
+        }
+
+        @Override
+        public void mouseExited(MouseEvent e) {
+            // TODO Auto-generated method stub
+            
+        }
+
+        @Override
+        public void mouseDragged(MouseEvent e) {
+            // TODO Auto-generated method stub
+            
+        }
+
+        @Override
+        public void mouseMoved(MouseEvent e) {
+            // TODO Auto-generated method stub
+            
+        }
+        
     }
 
 }

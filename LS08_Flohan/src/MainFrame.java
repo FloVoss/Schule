@@ -26,7 +26,7 @@ public class MainFrame extends JFrame {
         add(Box.createRigidArea(new Dimension(140, JFrame.MAXIMIZED_VERT)), BorderLayout.EAST);
         add(Box.createRigidArea(new Dimension(JFrame.MAXIMIZED_HORIZ, 140)), BorderLayout.SOUTH);
         add(mainpanel);
-        navbar.getNeuerMitarbeiter().addActionListener( );
+        //navbar.getNeuerMitarbeiter().addActionListener( );
         getContentPane().setBackground(Color.white);
         setVisible(true);
     }

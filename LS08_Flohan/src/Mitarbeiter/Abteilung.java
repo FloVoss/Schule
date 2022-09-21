@@ -5,14 +5,14 @@ import java.util.List;
 
 public class Abteilung {
     private String name;
-    private List<Mitarbeiter> mitarbeiter;
+    private ArrayList<Mitarbeiter> mitarbeiter;
     private Manager leiter;
     
     private void setName(String name) {
         this.name = name;
     }
 
-    private void setMitarbeiter(List<Mitarbeiter> mitarbeiter) {
+    public void setMitarbeiter(ArrayList<Mitarbeiter> mitarbeiter) {
         this.mitarbeiter = mitarbeiter;
     }
     
@@ -24,7 +24,7 @@ public class Abteilung {
         return name;
     }
 
-    public List<Mitarbeiter> getMitarbeiter() {
+    public ArrayList<Mitarbeiter> getMitarbeiter() {
         return mitarbeiter;
     }
 
