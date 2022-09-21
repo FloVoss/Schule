@@ -3,7 +3,12 @@ package Mitarbeiter;
 public class Schichtarbeiter extends Mitarbeiter {
     private double stundenSatz;
     private int anzahlStunden;
-    public Schichtarbeiter(int id, String name) {
+    public Schichtarbeiter(int id, String name, double stundenSatz, int stunden) {
+        super(id, name);
+        setStundenSatz(stundenSatz);
+        setAnzahlStunden(stunden);
+    }
+    public Schichtarbeiter(int id, String name, double stundenSatz) {
         super(id, name);
     }
     @Override

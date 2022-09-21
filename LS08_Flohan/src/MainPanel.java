@@ -1,32 +1,35 @@
 import javax.swing.*;
 import javax.swing.border.Border;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.JTableHeader;
 import javax.swing.table.TableCellRenderer;
+import javax.swing.table.TableColumn;
+import javax.swing.table.TableModel;
+import javax.swing.text.TableView.TableRow;
+import javax.xml.crypto.Data;
 
 import java.awt.*;
+import java.util.Arrays;
 
 public class MainPanel extends JPanel{
 
     // Dummy Data
-    private String[] columns = new String[] {"", "Name", "ID", "Typ", "Gehalt" };
-    private String[][] rows = new String[][] {
-            {"", "Axel Schweiß", "5300", "Manager", "7500" },
-            {"", "Max Mustermann", "5111", "Fahrer", "2500" },
-            {"", "Anna Belka", "5613", "Büro", "3000" },
-            {"", "Phil Fraß", "5210", "Schichtarbeiter", "4200" },
-            {"", "Test", "Test", "Test", "Test" },
-            {"", "Test", "Test", "Test", "Test" },
-            {"", "Test", "Test", "Test", "Test" },
-            {"", "Test", "Test", "Test", "Test" },
-            {"", "Test", "Test", "Test", "Test" },
-            {"", "Test", "Test", "Test", "Test" },
-            {"", "Test", "Test", "Test", "Test" },
-            {"", "Test", "Test", "Test", "Test" },
-            {"", "Test", "Test", "Test", "Test" },
-            {"", "Test", "Test", "Test", "Test" },
-            {"", "Test", "Test", "Test", "Test" },
-            {"", "Test", "Test", "Test", "Test" }
+    private String[] columns = new String[] {"", "Name", "ID", "Abteilung", "Typ", "Gehalt" };
+    private Object[][] rows = new Object[][] {
+            {false, "Hans Hannebrück", "5300", "DevOps", "Manager", "7500€" },
+            {false, "Max Mustermann", "5111", "Buchhaltung", "Fahrer", "2500€" },
+            {false, "Anna Belka", "5613", "", "Büro", "3000€" },
+            {false, "Thorsten Trainer", "5333", "", "Schichtarbeiter", "4000€"},
+            {false, "Marius Miesepeter", "3555", "", "Büroarbeiter", "6000€"},
+            {false, "Gieseler Grevenbruch", "5999", "", "Schichtarbeiter", "4500€"},
+            {false,  "Martin Murks", "5400", "", "Schichtarbeiter", "4200€"},
+            {false, "Dardan Drucks", "5600", "", "Büroarbeiter", "7600€"},
+            {false, "Eric Eierbaum", "6300", "", "Büroarbeiter", "7600€"},
+            {false, "Dardan Drucks", "4800", "", "Büroarbeiter", "7600€"}
     };
 
     // Styles
@@ -38,46 +41,36 @@ public class MainPanel extends JPanel{
     private JPanel leiterpanel = new JPanel();
     private JPanel searchpanel = new JPanel();
     private JPanel bottompanel = new JPanel();
-    private JTable table = new JTable(rows, columns);
-    private JTableHeader header = table.getTableHeader();
-    private DefaultTableCellRenderer renderer = (DefaultTableCellRenderer) table.getDefaultRenderer(String.class);
-    
+    private MyTableModel tablemodel = new MyTableModel(0, 0);
+    private JTable table;
+    private JTableHeader header;
+    private DefaultTableCellRenderer renderer;
     private JButton downloadbutton = new JButton("Download Gehaltsliste");
     private JButton verschieben = new JButton("Ausgewählte verschieben");
-    private JButton leiterbutton = new JButton("Leiter wechseln");
+    
     private JButton abteilungLöschen = new JButton("Abteilung löschen");
     private JButton löschen = new JButton("Ausgewählte löschen");
     private JLabel gehaltsSumme = new JLabel("Gehaltssumme: 17200€");
     private JLabel headerlabel = new JLabel("Abteilung: DevOps");
     private JTextField searchfield = new JTextField("Suche");
-    private JCheckBox checkbox = new JCheckBox();
     
     public MainPanel() {
         super();
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         setBackground(Color.white);
-        
         headerpanel.setLayout(new BoxLayout(headerpanel, BoxLayout.X_AXIS));
         headerpanel.setBackground(Color.white);
         headerlabel.setFont(new Font("Arial", Font.BOLD, 30));
-        // table.getColumnModel().getColumn(0).setCellRenderer(new TableCellRenderer() {
-
-        //     @Override
-        //     public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected,
-        //             boolean hasFocus, int row, int column) {
-        //         if(value instanceof Boolean){
-        //             checkbox.setSelected(Boolean.TRUE.equals(value));
-        //         }
-        //         return checkbox;
-        //     }
-
-        // });
+        tablemodel.setDataVector(rows, columns);
+        table = new JTable(tablemodel);
+        header = table.getTableHeader();
+        renderer = (DefaultTableCellRenderer) table.getDefaultRenderer(Object.class);
+        renderer.setHorizontalAlignment(DefaultTableCellRenderer.CENTER);
         downloadbutton.setFont(buttonfont);
         downloadbutton.setBackground(Color.white);
         downloadbutton.setBorder(buttonborder);
         downloadbutton.setPreferredSize(buttonsize);
         downloadbutton.setMaximumSize(buttonsize);
-
         gehaltsSumme.setFont(buttonfont);
         headerpanel.add(headerlabel);
         headerpanel.add(Box.createHorizontalGlue());
@@ -85,18 +78,18 @@ public class MainPanel extends JPanel{
         headerpanel.add(Box.createRigidArea(new Dimension(40, 40)));
         headerpanel.add(Box.createRigidArea(new Dimension(40, 40)));
         headerpanel.add(downloadbutton);
-
+        
         leiterpanel.setLayout(new BoxLayout(leiterpanel, BoxLayout.X_AXIS));
         leiterpanel.setBackground(Color.white);
 
-        leiterbutton.setBorder(buttonborder);
-        leiterbutton.setBackground(Color.white);
-        leiterbutton.setFont(buttonfont);
-        leiterbutton.setMaximumSize(buttonsize);
-        leiterbutton.setMinimumSize(new Dimension(0, 30));
-        leiterbutton.setPreferredSize(buttonsize);
-        leiterpanel.add(Box.createHorizontalGlue());
-        leiterpanel.add(leiterbutton);
+        // leiterbutton.setBorder(buttonborder);
+        // leiterbutton.setBackground(Color.white);
+        // leiterbutton.setFont(buttonfont);
+        // leiterbutton.setMaximumSize(buttonsize);
+        // leiterbutton.setMinimumSize(new Dimension(0, 30));
+        // leiterbutton.setPreferredSize(buttonsize);
+        // leiterpanel.add(Box.createHorizontalGlue());
+        // leiterpanel.add(leiterbutton);
 
         searchpanel.setLayout(new BoxLayout(searchpanel, BoxLayout.X_AXIS));
         searchpanel.setBackground(Color.white);
@@ -136,8 +129,6 @@ public class MainPanel extends JPanel{
         bottompanel.add(abteilungLöschen);
         bottompanel.add(Box.createHorizontalGlue());
 
-        System.out.println(table.getColumn("").getCellRenderer());
-
         add(Box.createRigidArea(new Dimension(JFrame.MAXIMIZED_HORIZ, 70)));
         add(headerpanel);
         add(Box.createRigidArea(new Dimension(JFrame.MAXIMIZED_HORIZ, 30)));
@@ -148,7 +139,6 @@ public class MainPanel extends JPanel{
 
         table.setFont(new Font("Arial", Font.PLAIN, 16));
         table.setRowHeight(50);
-        renderer.setHorizontalAlignment(DefaultTableCellRenderer.CENTER);
         header.setPreferredSize(new Dimension(100, 50));
         header.setFont(new Font("Arial", Font.BOLD, 30));
         header.setBackground(Color.white);
@@ -156,4 +146,5 @@ public class MainPanel extends JPanel{
         add(Box.createRigidArea(new Dimension(0, 50)));
         add(bottompanel);
     }
+
 }

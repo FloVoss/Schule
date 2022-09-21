@@ -16,6 +16,14 @@ public class NavBar extends JPanel {
     private JButton import_export = new JButton("Import + Export");
     private JButton neuerMitarbeiter = new JButton("neuer Mitarbeiter");
 
+    public JButton getNeuerMitarbeiter() {
+        return neuerMitarbeiter;
+    }
+
+    public void setNeuerMitarbeiter(JButton neuerMitarbeiter) {
+        this.neuerMitarbeiter = neuerMitarbeiter;
+    }
+
     public NavBar() {
         super();
         setLayout(new BoxLayout(this, BoxLayout.X_AXIS));

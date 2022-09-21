@@ -1,5 +1,6 @@
 
 import java.awt.Color;
+import java.nio.file.ClosedWatchServiceException;
 import java.util.*;
 
 import javax.swing.JFrame;
@@ -26,6 +27,7 @@ import Mitarbeiter.BueroArbeiter;
 import Mitarbeiter.Fahrer;
 import Mitarbeiter.Manager;
 import Mitarbeiter.Mitarbeiter;
+import Mitarbeiter.Schichtarbeiter;
 import Mitarbeiter.Verwaltung;
 import Preiskalkulationen.Preiskalkulation;
 
@@ -35,11 +37,6 @@ import Preiskalkulationen.Preiskalkulation;
 public class App {
 
     public static void main(String[] args) {
-        SwingUtilities.invokeLater(new Runnable() {
-            @Override
-            public void run() {
-                new MainFrame();
-            }
-        });
+        JFrame frame = new MainFrame();
     }
 }

@@ -14,9 +14,13 @@ public class Fahrer extends Schichtarbeiter {
         return fuehrerscheinKlasse;
     }
 
-    public Fahrer(int id, String name, String fuehrerscheinKlasse) {
-        super(id, name);
+    public Fahrer(int id, String name, String fuehrerscheinKlasse, double stundenSatz, int stunden) {
+        super(id, name, stundenSatz, stunden);
         this.setFuehrerscheinKlasse(fuehrerscheinKlasse);
+    }
+
+    public Fahrer(int id, String name, String fuerhrerscheinKlasse, double stundenSatz) {
+        super(id, name, stundenSatz);
     }
 
     public void fahrenZu(Kfz fahrzeug, Gps ziel) {
