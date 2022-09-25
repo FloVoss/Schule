@@ -82,7 +82,7 @@ public class MainPanel extends JPanel {
         headerpanel.setBackground(Color.white);
         headerlabel.setFont(new Font("Arial", Font.BOLD, 30));
         ArrayList<Mitarbeiter> mitarbeiter = abteilung.getMitarbeiter();
-        Object[][] data = new Object[columns.length][mitarbeiter.size()];
+        //Object[][] data = new Object[columns.length][mitarbeiter.size()];
         // for(int j = 1; j < columns.length; j++){
         //     for(int i = 0; i < mitarbeiter.size(); i++){    
         //         Mitarbeiter current = mitarbeiter.get(i);

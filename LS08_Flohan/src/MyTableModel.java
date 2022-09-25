@@ -9,10 +9,6 @@ public class MyTableModel extends DefaultTableModel {
     }
     @Override
     public Class<?> getColumnClass(int columnindex){
-        if(columnindex == 0){
-            return Boolean.class;
-        }else{
-            return String.class;
-        }
+        return columnindex == 0 ? Boolean.class : String.class;
     }
 }

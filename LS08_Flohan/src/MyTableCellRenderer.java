@@ -23,5 +23,4 @@ public class MyTableCellRenderer extends DefaultTableCellRenderer{
         setText(value != null ? value.toString() : "");
         return null;
     }
-    
 }
